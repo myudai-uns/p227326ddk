@@ -1,0 +1,68 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
+/* ---------------------------------------------------------------- *
+
+  コーディング規約参考：http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml
+                        http://www.cyberagent.co.jp/recruit/techreport/report/
+
+----------------------------------------------------------------- */
+/*
+ * module.css
+ */
+body#module {}
+  body#module .box {
+    margin-bottom: 100px;
+  }
+    body#module .box > ol,
+    body#module .box > ul,
+    body#module .box > table,
+    body#module .box > p {
+      margin-bottom: 40px;
+    }
+
+
+/* ---------------------------------------------------------------- *
+    スマートフォン・タブレット（960px未満）
+----------------------------------------------------------------- */
+@media only screen and (max-width: 960px) {
+  body#module {}
+}
+
+/* AISIN: モバイル横溢れ最終クランプ（news等） */
+@media only screen and (max-width: 768px){
+  html, body { overflow-x: hidden !important; max-width: 100vw !important; }
+  .drawerMenu, .megaNav, .megaNavParent { max-width: 100vw !important; }
+}
+
+/* AISIN: モバイルで本文コンテナをborder-box化（#mainの幅+paddingで右見切れ防止） */
+@media only screen and (max-width: 768px){
+  #wrapper, #container, #contents, #main, #main *, .contents, article { box-sizing: border-box !important; }
+  #main { width: 100% !important; max-width: 100% !important; }
+}
+
+/* AISIN: 製品ページの部品図をモバイルで縮小して右見切れ防止 */
+@media only screen and (max-width: 768px){
+  body#product .img:has(.img_product){ transform: scale(.9); transform-origin: center top; }
+}
+
+/* AISIN: フッター項目の間隔を確保（くっつき解消） */
+#footer .footList li { margin: 6px 26px 10px 0 !important; }
+#footer .snsList { gap: 14px; }
+
+/* AISIN: ハンバーガー内SNSを中央寄せ（端から端→中央） */
+.drawerMenu .megaNav .snsList { justify-content: center !important; width: 100% !important; }
+.drawerMenu .megaNav .snsVox { text-align: center; }
+
+/* AISIN: ハンバーガー最下部のリンク/SNSにページ端の余白を確保 */
+@media only screen and (max-width: 768px){
+  .drawerMenu .snsVox { padding-left: 24px !important; padding-right: 24px !important; box-sizing: border-box; }
+  .drawerMenu .megaNavParent > li > a { padding-left: 24px !important; padding-right: 24px !important; box-sizing: border-box; }
+}
+
+/* AISIN: ドロワー最下部SNSを左寄せ（左72pxにOfficial SNS→24px→IG→24px→TikTok） */
+@media only screen and (max-width: 768px){
+  .drawerMenu .megaNav .snsVox{ display:flex !important; flex-direction:row !important; align-items:center; justify-content:flex-start; gap:24px; padding-left:72px !important; padding-right:24px !important; text-align:left; }
+  .drawerMenu .megaNav .snsTtl{ margin:0 !important; white-space:nowrap; font-size:15px !important; }
+  .drawerMenu .megaNav .snsList{ justify-content:flex-start !important; width:auto !important; gap:24px; margin:0 !important; }
+  .drawerMenu .megaNav .snsList li{ margin:0 !important; }
+}
