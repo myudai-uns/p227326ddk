@@ -3308,6 +3308,11 @@ body#news #main, body.news #main {
   float: none !important;
 }
 
+/* News page body must stay full-width: article.css の .news{width:1080px} が
+   body.news に誤適用され本文が縮む・中央がずれる問題への上書き。
+   横幅・中央寄せは #contents(width:1080; margin:0 auto) が担当する。 */
+body#news, body.news { width: auto; }
+
 /* Clear-fix for ul.list_img so following h2/h3 don't wrap next to floated items */
 #main ul.list_img {
   overflow: hidden !important;
